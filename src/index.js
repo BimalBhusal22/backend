@@ -1,6 +1,7 @@
 // require("dotenv").config({ path: "./env" });
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
 dotenv.config({
   path: "./env",
@@ -9,19 +10,14 @@ dotenv.config({
 const port = process.env.PORT || 8000;
 
 connectDB()
-.then(()=>{
-    app.listen(port,()=>{
-        console.log(`Server is running at http://localhost:${port}`);
-        
-    })
-})
-.catch((err)=>{
-    console.log("Bimal Mongodb connection failed and the error is: ",err);
-    
-})
-
-
-
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is running at http://localhost:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.log("Bimal Mongodb connection failed and the error is: ", err);
+  });
 
 /*
 import express from "express";
